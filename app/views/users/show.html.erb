@@ -1,0 +1,55 @@
+<% if current_user && current_user.admin?%>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @user.role %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+<% else %>
+
+<% if current_user && current_user == @user %>
+<div class="Profile">
+
+	<h1>My Account</h1>
+	<button class ="profile_icon" type="button"><%= current_user.email[0].upcase %> </button>
+	<br>
+
+<div class ="profile_item">
+<p1><%= current_user.email%></p1>
+</div>
+
+
+
+
+ <a href="<%= logout_path %>"><button class ="login_btn" type="button">Log Out</button></a>
+
+</div>
+
+	<% else %>
+
+<a href="<%= home_path %>">
+<div class="error_access_denied">
+  <a href="<%= home_path %>">
+<img src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/something-s-not-quite-right-icon_orig.png" alt="404 Page Not Found" width="943px" height="400px" style="text-align:center;"></a>
+
+<h1>Something Doesn't Quite Line Up</h1>
+</div>
+<div class="error_button_home">
+<a href="<%= home_path %>" >Home</a>
+</div>
+
+
+
+
+<% end %>
+
+<% end %>

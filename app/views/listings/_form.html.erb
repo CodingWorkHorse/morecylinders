@@ -1,0 +1,112 @@
+<%= form_with(model: listing, local: true) do |form| %>
+  <% if listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :make %>
+    <%= form.text_field :make %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trim %>
+    <%= form.text_field :trim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mileage %>
+    <%= form.number_field :mileage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vin %>
+    <%= form.text_field :vin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :condition %>
+    <%= form.text_field :condition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exterior_color %>
+    <%= form.text_field :exterior_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interior_color %>
+    <%= form.text_field :interior_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :engine %>
+    <%= form.text_field :engine %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transmission %>
+    <%= form.text_field :transmission %>
+  </div>
+
+  <div class="field">
+    <%= form.label :original_listing_service %>
+    <%= form.text_field :original_listing_service %>
+  </div>
+
+  <div class="field">
+    <%= form.label :listing_url %>
+    <%= form.text_field :listing_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :listing_author %>
+    <%= form.text_field :listing_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_field :image_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

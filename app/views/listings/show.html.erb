@@ -1,0 +1,162 @@
+<% if current_user && current_user.admin?%>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @listing.title %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @listing.year %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @listing.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @listing.model %>
+</p>
+
+<p>
+  <strong>Trim:</strong>
+  <%= @listing.trim %>
+</p>
+
+<p>
+  <strong>Mileage:</strong>
+  <%= @listing.mileage %>
+</p>
+
+<p>
+  <strong>Vin:</strong>
+  <%= @listing.vin %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @listing.condition %>
+</p>
+
+<p>
+  <strong>Exterior color:</strong>
+  <%= @listing.exterior_color %>
+</p>
+
+<p>
+  <strong>Interior color:</strong>
+  <%= @listing.interior_color %>
+</p>
+
+<p>
+  <strong>Engine:</strong>
+  <%= @listing.engine %>
+</p>
+
+<p>
+  <strong>Transmission:</strong>
+  <%= @listing.transmission %>
+</p>
+
+<p>
+  <strong>Original listing service:</strong>
+  <%= @listing.original_listing_service %>
+</p>
+
+<p>
+  <strong>Listing url:</strong>
+  <%= @listing.listing_url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @listing.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @listing.price %>
+</p>
+
+<p>
+  <strong>Listing author:</strong>
+  <%= @listing.listing_author %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @listing.status %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @listing.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>
+
+<% else %>
+<div class="Product_Show_Page">
+
+
+<table>
+  <tr>
+    <th><img src="<%= @listing.image_url %>" alt="<%= @listing.title %>" width="500em" height= auto></th>
+    <th>
+
+      <table>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><h1 class="product_title"> <%= @listing.title %> </h1></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><p1 class="product_description"><%= @listing.description %></p1></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><p1 class="product_price"> Price: <%= number_to_currency(@listing.price) %> </p1></tr>
+        <tr><br></tr>
+         <tr><br></tr>
+        <tr>
+                <%= button_to 'View Original Listing', @listing.listing_url, :class => 'add_to_cart_button' %>
+        </tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+
+      </table>
+
+
+
+
+    </th>
+  </tr>
+
+
+
+
+
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
+<% end %>
+

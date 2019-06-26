@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>More Cylinders</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+      <div class="current_header">
+<div class="topnav">
+  <% if current_user %>
+
+  <a href="<%= user_path(current_user) %>"><button class ="logout" type="button"><%= current_user.email[0].upcase %>
+ </button></a>
+
+
+
+  <% else %>
+  <a href="<%= login_path %>"><button class ="login" type="button">Log In</button></a>
+<% end %>
+  <a href="<%= collection_path %>"><p>Collection</p></a>
+  <% if current_user && current_user.admin?%>
+  <a href="<%= dashboard_path %>"><p>Dashboard</p></a>
+  <a href="<%= listingbase_path %>"><p>Listings</p></a>
+  <% end %>
+  <a href="<%= home_path %>"><p> Home</p></a>
+   <a href="<%= home_path %>"><p> <strong>More Cylinders</strong></p></a>
+</div>
+
+</div>
+
+<div class="main_block">
+    <%= yield %>
+  </div>
+
+
+  <div class="footer-main-div">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="footer-social-icons">
+  <ul>
+    <li><a href="https://www.facebook.com/" target="blank"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="https://twitter.com/?lang=en" target="blank"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="https://www.instagram.com/" target="blank"><i class="fa fa-instagram"></i></a></li>
+    <li><a href="https://www.youtube.com/" target="blank"><i class="fa fa-youtube"></i></a></li>
+  </ul>
+</div>  
+ 
+<div class="footer-menu-one">
+  <ul>
+    <li><a href="<%= home_path %>">Home</a></li>
+    <li><a href="<%= collection_path %>">Collection</a></li>
+           <li><a href="<%= listingbase_path %>">Listings</a></li>
+           <li><a href="<%= dashboard_path %>">Dashboard</a></li>
+  </ul>
+</div>
+
+
+
+<!-- 
+<div class="footer-menu-two">
+  <ul>
+    <li><a href="#">Blog</a></li>
+           <li><a href="#">News</a></li>
+           <li><a href="#">Gallery</a></li>
+           <li><a href="#">Media</a></li>
+           
+  </ul>
+</div> -->
+
+
+
+ 
+</div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+   <section class="hero_2">
+            <div class="hero-inner">
+                <h1>Collection</h1>
+            </div>
+        </section>
+<br>
+<br>
+        <div class="store_display">
+
+
+
+
+                  	<% @listings.each do |listing| %>
+<% if listing.status == "Current" %>
+               
+      <div class="store_item" style="       background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('<%= listing.image_url %>');">
+        
+   
+          <br>
+          <br>
+          <br>
+            <h3 style="text-align: center; font-weight: 500;"><%= listing.title %></h3>
+
+            <h5 style="text-align: center; font-weight: 300;"><%= truncate(strip_tags(listing.description), length: 150) %></h5>
+            <div class="item_actions">
+            <span class="price"><%= number_to_currency(listing.price) %></span>
+
+
+            <br><a href="<%= listing_path(listing) %>"><button class ="view_item" type="button">View</button></a>
+        </div>
+</div>
+
+<% end %>
+
+<% end %>
+
+</div>
+
+
+
+

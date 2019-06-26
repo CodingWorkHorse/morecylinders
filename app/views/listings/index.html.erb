@@ -1,0 +1,77 @@
+<% if current_user && current_user.admin?%>
+<p id="notice"><%= notice %></p>
+
+<h1>Listings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Trim</th>
+      <th>Mileage</th>
+      <th>Vin</th>
+      <th>Condition</th>
+      <th>Exterior color</th>
+      <th>Interior color</th>
+      <th>Engine</th>
+      <th>Transmission</th>
+      <th>Original listing service</th>
+      <th>Listing url</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Listing author</th>
+      <th>Status</th>
+      <th>Image url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.title %></td>
+        <td><%= listing.year %></td>
+        <td><%= listing.make %></td>
+        <td><%= listing.model %></td>
+        <td><%= listing.trim %></td>
+        <td><%= listing.mileage %></td>
+        <td><%= listing.vin %></td>
+        <td><%= listing.condition %></td>
+        <td><%= listing.exterior_color %></td>
+        <td><%= listing.interior_color %></td>
+        <td><%= listing.engine %></td>
+        <td><%= listing.transmission %></td>
+        <td><%= listing.original_listing_service %></td>
+        <td><%= listing.listing_url %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.listing_author %></td>
+        <td><%= listing.status %></td>
+        <td><%= listing.image_url %></td>
+        <td><%= link_to 'Show', listing %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Listing', new_listing_path %>
+
+
+<% else %>
+<div class="error_access_denied">
+  <a href="<%= root_path %>">
+<img src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/something-s-not-quite-right-icon_orig.png" alt="404 Page Not Found" width="943px" height="400px" style="text-align:center;"></a>
+
+<h1>Something Doesn't Quite Line Up</h1>
+</div>
+<div class="error_button_home">
+<a href="<%= root_path %>" >Home</a>
+</div>
+<% end %>
