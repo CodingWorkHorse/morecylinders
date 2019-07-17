@@ -39,31 +39,38 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+
+input{
+box-sizing: border-box;
+    box-sizing: border-box;
+  border-style: double;
+  color: red;
+
+  }
 }
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid black;
   padding: 7px 7px 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5em;
 
   h2 {
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
     font-size: 12px;
     margin: -7px -7px 0;
-    background-color: #c00;
+    background-color: black;
     color: #fff;
   }
 
   ul li {
     font-size: 12px;
-    list-style: square;
+    text-align: center;
   }
 }
 

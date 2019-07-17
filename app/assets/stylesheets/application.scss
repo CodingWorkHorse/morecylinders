@@ -337,10 +337,10 @@ nav a:hover {
     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
   }
   
-  .logo {
-    margin-top: 1em;
-    grid-column: 2 / 3;
-    color: white;
+  .left-nav {
+   
+    float: left;
+
 
   }
 

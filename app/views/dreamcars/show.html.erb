@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @dreamcar.user %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @dreamcar.year %>
+</p>
+
+<p>
+  <strong>Trim:</strong>
+  <%= @dreamcar.trim %>
+</p>
+
+<p>
+  <strong>Exterior color:</strong>
+  <%= @dreamcar.exterior_color %>
+</p>
+
+<p>
+  <strong>Interior color:</strong>
+  <%= @dreamcar.interior_color %>
+</p>
+
+<p>
+  <strong>Engine:</strong>
+  <%= @dreamcar.engine %>
+</p>
+
+<p>
+  <strong>Transmisson:</strong>
+  <%= @dreamcar.transmisson %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @dreamcar.price %>
+</p>
+
+<p>
+  <strong>Extra column:</strong>
+  <%= @dreamcar.extra_column %>
+</p>
+
+<%= link_to 'Edit', edit_dreamcar_path(@dreamcar) %> |
+<%= link_to 'Back', dreamcars_path %>

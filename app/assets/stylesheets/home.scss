@@ -72,3 +72,29 @@ border: 6px solid white;
  font-size: 1.75em;
 
 }
+
+
+.return_home_button {
+background-color: #fff;
+border-color:black;
+  border-style: solid;
+  border-width: 0.1em;
+  color: black;
+  text-align: center;
+  padding: 10px 18px;
+  margin-bottom: 0em;
+  text-decoration: none;
+  font-size: 10px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  text-align: center;
+
+
+ -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  
+}
+
+.return_home_button:hover {
+  background-color: black; 
+  color: #fff;
+}

@@ -1,0 +1,2 @@
+class Dreamcar < ApplicationRecord
+end

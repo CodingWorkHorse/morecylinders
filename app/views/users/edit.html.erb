@@ -8,7 +8,15 @@
 
 <% else %>
 
+<% if current_user && current_user == @user %>
 
+
+<%= render 'form', user: @user %>
+
+
+
+
+<% else %>
 
 
 <div class="error_access_denied">
@@ -19,4 +27,6 @@
 <div class="error_button_home">
 <a href="<%= root_path %>" >Home</a>
 </div>
+
+<% end %>
 <% end %>

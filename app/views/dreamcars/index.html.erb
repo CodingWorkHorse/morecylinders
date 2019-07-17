@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dreamcars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Year</th>
+      <th>Trim</th>
+      <th>Exterior color</th>
+      <th>Interior color</th>
+      <th>Engine</th>
+      <th>Transmisson</th>
+      <th>Price</th>
+      <th>Extra column</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dreamcars.each do |dreamcar| %>
+      <tr>
+        <td><%= dreamcar.user %></td>
+        <td><%= dreamcar.year %></td>
+        <td><%= dreamcar.trim %></td>
+        <td><%= dreamcar.exterior_color %></td>
+        <td><%= dreamcar.interior_color %></td>
+        <td><%= dreamcar.engine %></td>
+        <td><%= dreamcar.transmisson %></td>
+        <td><%= dreamcar.price %></td>
+        <td><%= dreamcar.extra_column %></td>
+        <td><%= link_to 'Show', dreamcar %></td>
+        <td><%= link_to 'Edit', edit_dreamcar_path(dreamcar) %></td>
+        <td><%= link_to 'Destroy', dreamcar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dreamcar', new_dreamcar_path %>

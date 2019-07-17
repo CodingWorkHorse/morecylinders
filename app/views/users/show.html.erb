@@ -17,22 +17,71 @@
 <% else %>
 
 <% if current_user && current_user == @user %>
+
+
 <div class="Profile">
 
 	<h1>My Account</h1>
-	<button class ="profile_icon" type="button"><%= current_user.email[0].upcase %> </button>
+	<a href="<%= edit_user_path(@user) %>"><button class ="profile_icon" style="margin-bottom: 0.25em;" type="button"><h><%= current_user.email[0].upcase %></h> </button></a>
 	<br>
 
+
 <div class ="profile_item">
-<p1><%= current_user.email%></p1>
+<strong><p1><%= current_user.email%></p1></strong><br>
+<p1>Member Since <%= current_user.created_at.to_date.year %></p1>
+</div>
+
+
+
+ <a href="<%= logout_path %>"><button class ="login_btn" style="margin-top: 1em;" type="button">Log Out</button></a>
+
 </div>
 
 
 
 
- <a href="<%= logout_path %>"><button class ="login_btn" type="button">Log Out</button></a>
+<section style="background-color: #fff; width: 100vw; height: 1vh;">
+	</section>
 
-</div>
+	<section style="
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('https://image.redbull.com/rbcom/052/2017-11-29/553c40f4-b6cb-4891-acc6-a118a08d8c0c/0012/0/0/0/3122/4683/1500/1/mike-crawat-modified-car-photography.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}">
+    <h1 style="font-size: 6em;">Discover More Cylinders</h1>
+	</section>
+
+
+	<section style="background-color: #fff; width: 100vw; height: 1vh;">
+	</section>
+
+	<section style="
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('http://www.ted7.com/data2/images/18.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}">
+    <br>
+	</section>
+
+
 
 	<% else %>
 

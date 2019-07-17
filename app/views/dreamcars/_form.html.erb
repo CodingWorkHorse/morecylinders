@@ -1,0 +1,68 @@
+
+<div class="dreamcar_form">
+  <h1>New Dreamcar</h1>
+<%= form_with(model: dreamcar, local: true) do |form| %>
+  <% if dreamcar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dreamcar.errors.count, "error") %> prohibited this dreamcar from being saved:</h2>
+
+      <ul>
+      <% dreamcar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user %>
+    <%= form.text_field :user %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trim %>
+    <%= form.text_field :trim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exterior_color %>
+    <%= form.text_field :exterior_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interior_color %>
+    <%= form.text_field :interior_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :engine %>
+    <%= form.text_field :engine %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transmisson %>
+    <%= form.text_field :transmisson %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :extra_column %>
+    <%= form.text_field :extra_column %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+    <input type="reset">
+  </div>
+<% end %>
+
+</div>

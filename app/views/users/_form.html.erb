@@ -2,27 +2,25 @@
 <% if current_user %>
 <div class="login_form">
 <%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+ 
+ <% if current_user && current_user == @user %>
+<h1>Update Account</h1>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="field">
+    <strong><p1 style="font-size: 1.25em;">Account Email: <%= @user.email %></p1></strong>
+  </div>
+
+<% end %>
 
 
 
+<% if current_user && current_user.admin?%>
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
   </div>
 
 
-<% if current_user && current_user.admin?%>
   <div class="field">
     <%= form.label :role %>
     <%= form.text_field :role %>
@@ -39,17 +37,7 @@
     <%= form.password_field :password_confirmation %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
 
-</div>
-<% else %>
-
-<div class="login_form">
-
-<%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -62,6 +50,25 @@
     </div>
   <% end %>
 
+
+  <div class="actions">
+  <div class=”actions” style="margin-top: 1.5em;">
+   <button type="submit" value="Submit">Submit</button>
+   
+  </div>
+  </div>
+<% end %>
+
+</div>
+<% else %>
+
+<div class="login_form">
+
+<%= form_with(model: user, local: true) do |form| %>
+
+
+
+<h1 style="text-align: center;">Signup</h1>
 
 
 
@@ -80,11 +87,28 @@
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation %>
   </div>
+
+
 <p1 style="font-size: .75em;">By Signing Up You Agree to Our <a href="<%= home_path%>" style="color: black;"><strong>Terms of Service</strong></a> and <a href="<%= home_path %>" style="color: black;"><strong>Privacy Policy</strong></a></p1>
 
+<% if user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(user.errors.count, "error") %> prohibited this account from being created:</h2>
+<% user.errors.full_messages.each do |message| %>
+<%= message %>
+<br>
+<% end %>
+
+</div>
+  <% end %>
+
+
   <div class=”actions” style="margin-top: 1.5em;">
-   <button type="submit" value="Submit">Submit</button>
+   <button type="submit" value="Submit">Create</button>
+   
   </div>
+
+
 
 <% end %>
 </div>
