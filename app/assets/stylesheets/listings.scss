@@ -108,3 +108,107 @@ text-decoration: bold;
 	
 	text-align: center;
 }
+
+
+
+
+.listing_media {
+    /* Sizing */
+    width: 100vw;
+    height: 60vh;
+    
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Text styles */
+    text-align: center;
+    color: white;
+    
+    /* Background styles */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 380px;
+}
+
+.listing_media h1 {
+    /* Text styles */
+    font-size: 5em;
+    
+    /* Margins */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.listing_media .btn {
+    /* Positioning and sizing */
+    display: block;
+    width: 200px;
+    
+    /* Padding and margins */
+    padding: 1em;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Text styles */
+    color: white; 
+    text-decoration: none;
+    font-size: 1.5em;
+      font-family: verdana, arial, helvetica, sans-serif;
+    
+    /* Border styles */
+    border: 5px solid white; 
+
+
+ -webkit-transition-duration: 0.5s; /* Safari */
+  transition-duration: 0.4s;
+
+}
+
+.listing_media .btn:hover {
+ margin-top: 45px;
+border: 6px solid white; 
+ font-size: 1.75em;
+
+}
+
+
+.bg-img {
+  /* The image used */
+  background-image: url("img_nature.jpg");
+
+  min-height: 40vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+  padding: 16px;
+  background-color: black;
+  width: 100%;
+  opacity: .85;
+  
+}
+
+.container h1{
+    line-height: 1.6;
+    opacity: 1;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}

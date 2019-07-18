@@ -102,59 +102,36 @@
 <% else %>
 <div class="Product_Show_Page">
 
-
-<table>
-  <tr>
-    <th><img src="<%= @listing.image_url %>" alt="<%= @listing.title %>" width="500em" height= auto></th>
-    <th>
-
-      <table>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><h1 class="product_title"> <%= @listing.title %> </h1></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><p1 class="product_description"><%= @listing.description %></p1></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><p1 class="product_price"> Price: <%= number_to_currency(@listing.price) %> </p1></tr>
-        <tr><br></tr>
-         <tr><br></tr>
-        <tr>
-            
-
-                <a href="<%= @listing.listing_url %>"><button class ='add_to_cart_button' style="" type="button">View Original Listing</button></a>
-        </tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-        <tr><br></tr>
-
-      </table>
+  <div class="bg-img" style="background-image: url('<%= @listing.image_url %>');">
+  <div class="container">
+    <div class="sub-container" style="display: inline;">
+    <h1><%= @listing.title %></h1><br>
 
 
+</div>    
+  </div>
+</div>
 
+<!--
 
-    </th>
-  </tr>
-
-
-
-
-
-</table>
+   <section class="listing_media" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('<%= @listing.image_url %>');">
+             <div style="background-color: black; height: 60vh; width: 25%;  position: absolute;
+  right: 0;
+  padding: 16px;
+  background-color: black;
+  opacity: 0.9;
+  ">
+                <h1 style="color: red;">Great Finds Delivered</h1>
+                <h2>Handpicked Listings From Across the Web Delivered to Your Inbox</h2>
+            </div>
+        </section>
+-->
 <br>
 <br>
 <br>
 <br>
 <br>
+
 <div class="listing_summary">
 <h1 class="product_title" style="text-align: center;"> Listing at a Glance </h1>
 
@@ -243,7 +220,7 @@
                         Listing Price:
                        
                       
-                        <span><%= number_to_currency(@listing.price) %></span></td>
+                        <span><%= number_to_currency(@listing.price) %> USD</span></td>
                     </tr>
              <!-- <tr>
                    <td width="50.0%">
@@ -286,7 +263,54 @@
 
 
 </div>
+
 <br>
+<br>
+<br>
+<br>
+
+<table>
+  <tr>
+    <th><img src="<%= @listing.image_url %>" alt="<%= @listing.title %>" width="900em" height= auto></th>
+    
+    <th>
+
+      <table>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><h1 class="product_title"> <%= @listing.title %> </h1></tr>
+        <tr><br></tr>
+        <tr style="width: 50%;"><p1 class="product_description"><%= @listing.description %></p1></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><p1 class="product_price"> Price: <%= number_to_currency(@listing.price) %> </p1></tr>
+        <tr><br></tr>
+         <tr><br></tr>
+        <tr>
+            
+
+                <a href="<%= @listing.listing_url %>"><button class ='add_to_cart_button' style="" type="button">View Original Listing</button></a>
+        </tr>
+        <tr><br></tr>
+      
+
+      </table>
+
+
+
+
+    </th>
+  </tr>
+
+
+
+
+
+</table>
+<br>
+
 <br>
 </div>
 
