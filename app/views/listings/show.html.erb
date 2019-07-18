@@ -329,6 +329,21 @@
 </table>
 -->
 <br>
+<h1 style="text-align: center;">Don't Miss These Other Great Finds</h1>
+
+<div class="carousel header" style="height: 320px;
+    font-size: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: #f1ede2;
+    width: 50;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;">
+ <% @listings.each do |listing| %>
+      <img src="<%= listing.image_url %>">
+    <% end %>
 
 <br>
 </div>
