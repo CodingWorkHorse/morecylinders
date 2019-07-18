@@ -1,0 +1,53 @@
+
+<% if current_user && current_user.admin?%>
+<p id="notice"><%= notice %></p>
+
+<h1>Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User name</th>
+      <th>User email</th>
+      <th>Body</th>
+      <th>Status</th>
+      <th>Flag</th>
+      <th>Listing</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user_name %></td>
+        <td><%= comment.user_email %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.status %></td>
+        <td><%= comment.flag %></td>
+        <td><%= comment.listing_id %></td>
+        <td><%= link_to 'Show', comment %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comment', new_comment_path %>
+
+<% else %>
+<div class="error_access_denied">
+  <a href="<%= root_path %>">
+<img src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/something-s-not-quite-right-icon_orig.png" alt="404 Page Not Found" width="943px" height="400px" style="text-align:center;"></a>
+
+<h1>Something Doesn't Quite Line Up</h1>
+</div>
+<div class="error_button_home">
+<a href="<%= root_path %>" >Home</a>
+</div>
+
+
+<% end %>

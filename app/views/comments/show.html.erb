@@ -1,0 +1,51 @@
+
+<% if current_user && current_user.admin?%>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @comment.user_name %>
+</p>
+
+<p>
+  <strong>User email:</strong>
+  <%= @comment.user_email %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @comment.body %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @comment.status %>
+</p>
+
+<p>
+  <strong>Flag:</strong>
+  <%= @comment.flag %>
+</p>
+
+<p>
+  <strong>Listing:</strong>
+  <%= @comment.listing_id %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>
+
+
+<% else %>
+<div class="error_access_denied">
+  <a href="<%= root_path %>">
+<img src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/something-s-not-quite-right-icon_orig.png" alt="404 Page Not Found" width="943px" height="400px" style="text-align:center;"></a>
+
+<h1>Something Doesn't Quite Line Up</h1>
+</div>
+<div class="error_button_home">
+<a href="<%= root_path %>" >Home</a>
+</div>
+
+
+<% end %>
