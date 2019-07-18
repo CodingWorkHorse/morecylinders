@@ -92,8 +92,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :listing_author %>
-    <%= form.text_field :listing_author %>
+    <%= form.hidden_field :listing_author, :value=> current_user.email %>
   </div>
 
   <div class="field">
