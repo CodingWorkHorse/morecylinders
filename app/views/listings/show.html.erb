@@ -128,6 +128,12 @@
 -->
 <br>
 <br>
+<div style="width: 50%; margin-left: auto; margin-right: auto; text-align: center;">
+<p1 class="product_description" style="font-size: 1.5em; font-weight: 250; margin-bottom: 1em;"><%= @listing.description %></p1><br>
+<br>
+<p1 class="product_price"> <strong>Listing Price: <%= number_to_currency(@listing.price) %> USD</strong></p1><br>
+ <a href="<%= @listing.listing_url %>"><button class ='add_to_cart_button' style="margin-top: 0.75em;" type="button">View Original Listing</button></a>
+</div>
 <br>
 <br>
 <br>
@@ -260,14 +266,26 @@
                     </tr> -->
                                 </tbody></table>
               <p style="text-align: center; font-size: 0.5em; font-weight: 500;">Although every effort is made to present accurate and reliable vehicle information, use of this information is voluntary, and should only be deemed reliable after an independent review of its accuracy, completeness, and timeliness.</p>
+              <p style="text-align: center; font-weight: lighter; font-size: 0.75em;">Listing Information Courtesy of <a href="<%= @listing.listing_url %>"> <%= @listing.original_listing_service %></a></p>
+
 
 
 </div>
 
+
 <br>
 <br>
 <br>
 <br>
+<p style="text-align: center; font-weight: lighter; font-size: 0.9em;">Last Updated On <%= @listing.updated_at.to_formatted_s(:long_ordinal) %> UTC</p>
+
+
+
+
+
+
+
+<!--
 
 <table>
   <tr>
@@ -309,6 +327,7 @@
 
 
 </table>
+-->
 <br>
 
 <br>
