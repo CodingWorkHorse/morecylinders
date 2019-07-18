@@ -331,21 +331,21 @@
 <br>
 <h1 style="text-align: center;">Don't Miss These Other Great Finds</h1>
 
-<div class="carousel header" style="height: 320px;
-    font-size: 0;
+<div class="cool_display" style="height: 30vh;
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
     background: #f1ede2;
-    width: 50;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1em;">
+    margin-bottom: 1em;
+    -webkit-overflow-scrolling: touch;">
  <% @listings.each do |listing| %>
-      <img src="<%= listing.image_url %>">
+      <img src="<%= listing.image_url %>" style="height: 30vh;">
     <% end %>
 
-<br>
+
 </div>
 
 
