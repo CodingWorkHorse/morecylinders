@@ -379,11 +379,16 @@
 
 
 <div class="comment-section" style="width: 50%; margin-left: auto; margin-right: auto;">
-<h2>Comments</h2>
+<h2><%= @comments.count %> <%= 'Comment'.pluralize(@comments.count) %></h2>
+ 
+<% if @listing.status == "Current" %>
 <%= render partial: 'comments/form', locals: { comment: @comment } %>
+<% else %>
+<p style="text-align: center;">New Comments Not Available on Archived Listings</p>
+<% end %>
 <% @comments.each do |comment| %>
-  <div>
-    <strong><%= comment.user_name %></strong>
+  <div class="comment-display">
+    <span><strong><%= comment.user_name %></strong> <%= comment.updated_at.to_formatted_s(:long) %></span>
     <br>
     <p><%= comment.body %></p>
 <% if current_user %>
