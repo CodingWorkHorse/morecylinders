@@ -47,6 +47,8 @@
  <%= form.hidden_field :listing_id %>
 
 
+
+
 <% if current_user %>
   <div class="actions">
     <div style="display:flex; justify-content:flex-end; width:100%; padding:0;">
@@ -55,6 +57,10 @@
   </div>
 
   <% else %>
-<a href="<%= login_path %>"><button>Create Comment</button></a>
+ <div class="actions">
+    <div style="display:flex; justify-content:flex-end; width:100%; padding:0;">
+    <a href="<%= login_path %>"><button class="comment_button">Login to Comment</button></a>
+  </div>
+  </div>
   <% end %>
 <% end %>
