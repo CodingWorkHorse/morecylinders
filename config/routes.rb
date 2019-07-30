@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :comments
+  resources :comments do
+  resources :likes
+end
   resources :dreamcars
   get 'collection/index'
   resources :listings
@@ -15,4 +18,5 @@ Rails.application.routes.draw do
   get 'listingbase', to: 'listings#index', as: 'listingbase'
   get 'dashboard', to: 'users#index', as: 'dashboard'
   get 'accountupdated', to: 'home#user_updated', as: 'accountupdated'
+  get 'archived', to: 'collection#archived', as: 'archived'
 end

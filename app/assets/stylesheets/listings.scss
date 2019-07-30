@@ -234,5 +234,28 @@ border: 6px solid white;
 }
 
 
+.like_button{
+   background-image: url('http://baumcube.weebly.com/uploads/6/5/8/4/65844733/like-icon_orig.png');
+    width: 30px;
+    height: 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
+     background-size: 28px 28px;
+     border-style: solid;
+     border-color: #fff6b3;
+      display:inline-block;
+}
+
+.liked_button{
+   background-image: url('http://baumcube.weebly.com/uploads/6/5/8/4/65844733/filled-in-like-icon_orig.png');
+    width: 30px;
+    height: 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
+     background-size: 28px 28px;
+     border-style: solid;
+     border-color: #fff6b3;
+}
+
 
 

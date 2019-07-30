@@ -394,7 +394,21 @@
     <span><strong><%= comment.user_name %></strong> <%= comment.updated_at.to_formatted_s(:long) %></span>
     <br>
     <p><%= comment.body %></p>
+    
+<!--
+    <% if !current_user %>
+<a href="<%= login_path %>"><button class="like_button"><span><img src="https://image.flaticon.com/icons/svg/25/25297.svg" width="20px"><div style="vertical-align: top;"><%= comment.likes.count %> <%= 'Like'.pluralize(comment.likes.count) %></div></span></button></a>
+    <% end %>
 <% if current_user %>
+<% pre_like = comment.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', comment_like_path(comment, pre_like), method: :delete %>
+
+   <div style="vertical-align: middle;"><span> <%= button_to ' ', comment_like_path(comment, pre_like), method: :delete, class: :liked_button %><h1><%= comment.likes.count %> <%= 'Like'.pluralize(comment.likes.count) %></h1></span></div>
+  <span><div style="vertical-align: top; display:inline-block;"><%= button_to ' ', comment_likes_path(comment), method: :post, class: :like_button %><%= comment.likes.count %> <%= 'Like'.pluralize(comment.likes.count) %></div></span>
+
+<% end %>
+-->
     <% if (current_user && current_user.admin?) || current_user.email == comment.user_email %>
     <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
     <% end %>
