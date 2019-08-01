@@ -258,4 +258,182 @@ border: 6px solid white;
 }
 
 
+#snackbar {
+visibility: visible; /* Show the snackbar */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: black; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 180px; /* 30px from the bottom */
+}
 
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: Black !important; 
+  color: #ffffff; 
+}
+
+
+
+
+
+.custom-select {
+  position: relative;
+  text-align: center;
+  max-width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+  background-color: Black;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: Black;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.listing_form{
+  text-align: center;
+margin-top: 10em;
+margin-bottom: 22em;
+h1{
+font-size: 3em;
+  margin-top: 3em;
+  text-align:center;
+  margin-bottom: 1em;
+  color: black;
+}
+input {
+text-align: center;
+font-size: 2em;
+  width:25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-style: double;
+  color: black;
+  display: block; 
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+select{
+  text-align: center;
+  width: 25%;
+  margin: 0 auto;
+}
+
+button{
+    padding: 10px 18px;
+  width:7.5%;
+  background-color: black;
+  border-color:black;
+  border-style: solid;
+  border-width: 0.1em;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: verdana, arial, helvetica, sans-serif;
+  display: block;
+  margin: 0 auto;
+
+
+}
+
+
+.action{
+  width:12.5%;
+}
+
+
+.form_alert{
+  color:red;
+  display: block; 
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
+}

@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listings</h1>
-
+<%= link_to 'New Listing', new_listing_path %>
 <table>
   <thead>
     <tr>
@@ -61,8 +61,13 @@
 
 <br>
 
-<%= link_to 'New Listing', new_listing_path %>
 
+<br>
+<br>
+<br>
+<br>
+
+<a href="<%= new_listing_path %>"><div id="snackbar">New Listing</div></a>
 
 <% else %>
 <div class="error_access_denied">

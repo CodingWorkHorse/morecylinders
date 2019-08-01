@@ -353,21 +353,21 @@
 </div>
 
 
-<h1 style="text-align: center; font-size: 1.25em;">Archived <%= @listing.make %> Finds</h1>
+<h1 style="text-align: center;">Archived <%= @listing.make %> Finds</h1>
 
-<div class="cool_display" style="height: 20vh;
+<div class="cool_display" style="height: 30vh;
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
     background: white;
-    max-width: 30%;
+    max-width: 50%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1em;
     -webkit-overflow-scrolling: touch;">
  <% @listings.each do |listing| %>
- <% if listing.make == @listing.make %>
-      <a href="<%= listing_path(listing) %>"><img src="<%= listing.image_url %>" style="height: 20vh;"></a>
+ <% if listing.make == @listing.make && listing.status == "Archived" %>
+      <a href="<%= listing_path(listing) %>"><img src="<%= listing.image_url %>" style="height: 30vh;"></a>
 
       <% end %>
 
