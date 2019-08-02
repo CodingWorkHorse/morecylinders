@@ -19,4 +19,6 @@ end
   get 'dashboard', to: 'users#index', as: 'dashboard'
   get 'accountupdated', to: 'home#user_updated', as: 'accountupdated'
   get 'archived', to: 'collection#archived', as: 'archived'
+  get 'privacy_policy', to: 'home#privacy_policy', as: 'privacy_policy'
+  get 'terms_of_service', to: 'home#terms_of_service', as: 'terms_of_service'
 end

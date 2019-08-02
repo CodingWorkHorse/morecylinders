@@ -176,4 +176,50 @@ border-color:black;
 }
 
 
+.discover_ad_domestic{
+	color: black;
+	-webkit-transition-duration: .8s; /* Safari */
+  transition-duration: 2.8s;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('https://image.redbull.com/rbcom/052/2017-11-29/553c40f4-b6cb-4891-acc6-a118a08d8c0c/0012/0/0/0/3122/4683/1500/1/mike-crawat-modified-car-photography.jpg');
+  
+}
+
+.discover_ad_domestic h1{
+	visibility: hidden;
+}
+
+.discover_ad_domestic:hover{
+	color: white;
+
+	background-image: linear-gradient(rgba(0, 0, 0, 0.85),rgba(0, 0, 0, 0.85)), url('https://image.redbull.com/rbcom/052/2017-11-29/553c40f4-b6cb-4891-acc6-a118a08d8c0c/0012/0/0/0/3122/4683/1500/1/mike-crawat-modified-car-photography.jpg');
+}
+
+.discover_ad_domestic:hover h1{
+visibility: visible;
+}
+
+.collapsible {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 60px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 3em;
+}
+
+.active, .collapsible:hover {
+  background-color: #141414;
+  border-width: 3px;
+  border-color: black;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
 
