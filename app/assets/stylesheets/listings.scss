@@ -84,11 +84,15 @@ font-size: 1.15em;
 
  .product_description{
 font-size: 1em;
+  letter-spacing: .02em;
+  -webkit-font-smoothing: antialiased;
  }
 
  .product_price{
 font-size: 1.15em;
 text-decoration: bold;
+  letter-spacing: .02em;
+  -webkit-font-smoothing: antialiased;
  }
 
  }
@@ -159,7 +163,9 @@ text-decoration: bold;
     color: white; 
     text-decoration: none;
     font-size: 1.5em;
-      font-family: verdana, arial, helvetica, sans-serif;
+      font-family: trebuchet MS, Lato, verdana, arial, helvetica, sans-serif;
+        letter-spacing: .02em;
+  -webkit-font-smoothing: antialiased;
     
     /* Border styles */
     border: 5px solid white; 
@@ -414,7 +420,7 @@ button{
   text-align: center;
   text-decoration: none;
   font-size: 1.5em;
-  font-family: verdana, arial, helvetica, sans-serif;
+ font-family: trebuchet MS, Lato, verdana, arial, helvetica, sans-serif;
   display: block;
   margin: 0 auto;
 

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
     margin: 0;
-    font-family: verdana, arial, helvetica, sans-serif;
+ font-family: trebuchet MS, Lato, verdana, arial, helvetica, sans-serif;
       font-size: 13px;
   line-height: 18px;
 }
@@ -38,6 +38,9 @@ body {
     /* Margins */
     margin-top: 0;
     margin-bottom: 0.5em;
+    font-family: trebuchet MS;
+      letter-spacing: .02em;
+  -webkit-font-smoothing: antialiased;
 }
 
 .hero .btn {
@@ -55,7 +58,9 @@ body {
     color: white; 
     text-decoration: none;
     font-size: 1.5em;
-      font-family: verdana, arial, helvetica, sans-serif;
+     font-family: trebuchet MS, Lato, verdana, arial, helvetica, sans-serif;
+       letter-spacing: .02em;
+  -webkit-font-smoothing: antialiased;
     
     /* Border styles */
     border: 5px solid white; 
@@ -70,6 +75,8 @@ body {
  margin-top: 45px;
 border: 6px solid white; 
  font-size: 1.75em;
+   letter-spacing: .02em;
+  -webkit-font-smoothing: antialiased;
 
 }
 
@@ -85,7 +92,9 @@ border-color:black;
   margin-bottom: 0em;
   text-decoration: none;
   font-size: 10px;
-  font-family: verdana, arial, helvetica, sans-serif;
+ font-family: trebuchet MS, Lato, verdana, arial, helvetica, sans-serif;
+   letter-spacing: .02em;
+  -webkit-font-smoothing: antialiased;
   text-align: center;
 
 

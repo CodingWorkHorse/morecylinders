@@ -382,7 +382,7 @@
 
 
 <div class="comment-section" style="width: 50%; margin-left: auto; margin-right: auto;">
-<h2><%= @comments.count %> <%= 'Comment'.pluralize(@comments.count) %></h2>
+<h2 id="comment_section_destination"><%= @comments.count %> <%= 'Comment'.pluralize(@comments.count) %></h2>
  
 <% if @listing.status == "Current" %>
 <%= render partial: 'comments/form', locals: { comment: @comment } %>
