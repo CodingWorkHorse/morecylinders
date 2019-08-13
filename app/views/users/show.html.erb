@@ -11,6 +11,9 @@
   <%= @user.role %>
 </p>
 
+<a href="<%= logout_path %>"><button class ="login_btn" style="margin-top: 1em; margin-bottom: 1em;" type="button">Log Out</button></a><br>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 
@@ -93,12 +96,12 @@
 <div class="content">
 <div class="store_display" style="margin-top: 5em;">
 
-
+<% count = 0; %>
 
 
                     <% @listings.each do |listing| %>
 <% if listing.listing_author == current_user.email  %>
-               
+               <% count = count + 1; %>
       <div class="store_item" style="       background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('<%= listing.image_url %>');">
         
    
@@ -113,6 +116,7 @@
 
 
             <br><a href="<%= listing_path(listing) %>"><button class ="view_item" type="button">View</button></a>
+            or <a href="<%= edit_listing_path(listing) %>"><button class ="view_item" type="button">Edit</button></a>
         </div>
 </div>
 
@@ -120,9 +124,24 @@
 
 <% end %>
 
+
 </div>
+
+
+
 <div style="text-align: center; margin-bottom: 0.5em;">
+  <% if count == 0 %>
+<h1 style="color: black; font-size: 1.05em;">No Private Finds Found</h1>
+
+<% end %>
+
+<% if count > 0 %>
+<h1 style="color: black; font-size: 1.05em;">Showing <%= count %> Private <%= 'Find'.pluralize(count) %></h1>
+
+<% end %>
+
 <a href="<%= new_listing_path %>"><button class="login_btn">Create New Private Find</button></a>
+
 
 </div>
 <div style="text-align: center; margin-bottom: 0.5em;">

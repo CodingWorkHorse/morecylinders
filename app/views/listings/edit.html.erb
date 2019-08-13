@@ -5,7 +5,16 @@
 
 <%= link_to 'Show', @listing %> |
 <%= link_to 'Back', listings_path %>
+
+
 <% else %>
+
+<% if current_user && current_user.email == @listing.listing_author %>
+
+<%= render 'form', listing: @listing %>
+
+<% else %>
+
 <div class="error_access_denied">
   <a href="<%= root_path %>">
 <img src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/something-s-not-quite-right-icon_orig.png" alt="404 Page Not Found" width="943px" height="400px" style="text-align:center;"></a>
@@ -15,4 +24,6 @@
 <div class="error_button_home">
 <a href="<%= root_path %>" >Home</a>
 </div>
+<% end %>
+
 <% end %>
