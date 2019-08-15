@@ -24,7 +24,22 @@
 
 <% end %>
 <% if current_user %>
+<% listing_counter = 0; %>
+<% @listings.each do |listing| %>
+<% if current_user.email == listing.listing_author %>
+<% listing_counter = listing_counter + 1; %>
+<% end %>
+<% end %>
 
+<% if listing_counter < 1 %>
+<div style="text-align: center; width: 100%; margin-left: auto; margin-right: auto; background-color: black; color: #fff;">
+
+<h1 style="padding-top: 1em; padding-bottom: 0; margin-bottom: 0; color: #fff; font-size: 1.25em;"><strong>It Looks Like You Are New To This</strong></h1><br>
+<div style="padding-bottom: 2em;">
+<p1 style="font-size: .95em; padding-bottom: 1em;">Say No More! Here Are <a href="<%= terms_of_service_path%>" style="color: #fff;"><strong>Some Pointers</strong></a> to Show You <a href="<%= privacy_policy_path %>" style="color: #fff;"><strong>How It Works</strong></a> and to Get You Sharing Your Own Finds With the Community</p1>
+</div>
+</div>
+<% end %>
 <%= render 'form', listing: @listing %>
 
 <% end %>

@@ -279,28 +279,15 @@ document.addEventListener("click", closeAllSelect);
   </div>
 
   <div class="field">
-    <%= form.label :original_listing_service %>
-    <%= form.text_field :original_listing_service %>
-  </div>
-
-  <div class="field">
-    <%= form.label :listing_url %>
-    <input id="listing_url" name="listing[listing_url]" type="url" />
-  </div>
-
-  <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    
     <textarea style="border-color: black; color: black; width: 25%; border-width: 0.2em;" rows="10" name="listing[description]" id="description">
 Please Insert a Description of this Market Find.
 </textarea>
 
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
+
 
   <div class="field">
     <%= form.hidden_field :listing_author, :value=> current_user.email %>
@@ -313,7 +300,42 @@ Please Insert a Description of this Market Find.
 
   <div class="field">
     <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
+    <!-- <%= form.text_field :image_url %> -->
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+      
+      $('#image_url').bind('input', function() {
+          $('#imageHolder').attr('src', $(this).val()); //concatinate path if required
+      });
+
+    });
+  </script>
+
+  <input type="text" name="listing[image_url]" id="image_url"><br><br>
+  <div style="border-color: black; color: black; border-width: 0.2em;">
+  <img name="imageHolder" id="imageHolder" src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/screen-shot-2019-07-16-at-2-03-03-pm_orig.png" width="25%" height="auto" style="border-color: black; color: black; border-width: 0.2em;"></div>
+  <p><strong>Image Preview</strong></p>
+
+</div>
+
+ <div class="field">
+    <%= form.label :listing_url %>
+    <input id="listing_url" name="listing[listing_url]" type="url" />
+  </div>
+
+    <div class="field">
+    <%= form.label :original_listing_service %>
+    <%= form.text_field :original_listing_service %>
+  </div>
+
+
+ <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
   </div>
 
   <div class="actions">

@@ -17,6 +17,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
+    @listings = Listing.all
     @listing = Listing.new
   end
 
@@ -59,7 +60,11 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy
     respond_to do |format|
+      if current_user && current_user.admin?
       format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
+    else
+       format.html { redirect_to home_path, notice: 'Listing was successfully destroyed.' }
+    end
       format.json { head :no_content }
     end
   end
