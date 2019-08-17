@@ -13,6 +13,7 @@ class ListingsController < ApplicationController
     @listings = Listing.all
     @comments = @listing.comments.all
   @comment = @listing.comments.build
+  @collections = Collection.all
   end
 
   # GET /listings/new

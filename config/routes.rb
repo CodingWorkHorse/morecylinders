@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :collections
   resources :comments
   resources :comments do
   resources :likes
@@ -14,7 +15,7 @@ end
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'home', to: 'home#index', as: 'home'
-  get 'collection', to: 'collection#index', as: 'collection'
+  get 'showroom', to: 'collection#index', as: 'showroom'
   get 'listingbase', to: 'listings#index', as: 'listingbase'
   get 'dashboard', to: 'users#index', as: 'dashboard'
   get 'accountupdated', to: 'home#user_updated', as: 'accountupdated'

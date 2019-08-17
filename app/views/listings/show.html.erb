@@ -386,6 +386,27 @@
 
 <% end %>
 
+<% exsisting_collections = 0; %>
+
+<% if current_user %>
+<% @collections.each do |collection| %>
+<% if collection.collection_author == current_user.email %>
+<% exsisting_collections = exsisting_collections + 1; %>
+<% end %>
+<% end %>
+
+<% if exsisting_collections > 0 %>
+<div class="add_to_collection" style="width: 50%; margin-right: auto; margin-left: auto; text-align: center;">
+Add To Collection
+
+</div>
+
+<% end %>
+
+<% end %>
+
+
+
 <!-- Below Is The Filtering System for Comments to Prevent Explict Content. All Content in Array Is From Maurice Bulter via GitHub and is used under the MIT License. The Original Git Commit is Extractable at: https://github.com/MauriceButler/badwords -->
 
 

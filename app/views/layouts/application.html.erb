@@ -24,7 +24,7 @@
   <a href="<%= login_path %>"><button class ="login" type="button">Log In</button></a>
 <% end %>
 <a href="<%= archived_path %>"><p>Archived</p></a>
-  <a href="<%= collection_path %>"><p>Collection</p></a>
+  <a href="<%= showroom_path %>"><p>Collection</p></a>
   <% if current_user && current_user.admin?%>
   <a href="<%= dashboard_path %>"><p>Dashboard</p></a>
   <a href="<%= listingbase_path %>"><p>Listings</p></a>
@@ -55,7 +55,7 @@
 <div class="footer-menu-one">
   <ul>
     <li><a href="<%= home_path %>">Home</a></li>
-    <li><a href="<%= collection_path %>">Collection</a></li>
+    <li><a href="<%= showroom_path %>">Collection</a></li>
            <li><a href="<%= listingbase_path %>">Listings</a></li>
            <li><a href="<%= dashboard_path %>">Dashboard</a></li>
   </ul>

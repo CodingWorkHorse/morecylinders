@@ -1,0 +1,84 @@
+<% if current_user && current_user.admin? %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @collection.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @collection.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @collection.status %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @collection.category %>
+</p>
+
+<p>
+  <strong>Collection author:</strong>
+  <%= @collection.collection_author %>
+</p>
+
+<p>
+  <strong>Collection image:</strong>
+  <%= @collection.collection_image %>
+</p>
+
+<%= link_to 'Edit', edit_collection_path(@collection) %> |
+<%= link_to 'Back', collections_path %>
+
+<% else %>
+
+ <section class="hero_2" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('<%= @collection.collection_image %>'); height: 30vh;">
+            <div class="hero-inner" style="width: 50%;">
+                <h1><%= @collection.title %></h1>
+                <p style="width: 65%; margin-left: auto; margin-right: auto;"><%= truncate(strip_tags(@collection.description), length: 600) %></p>
+            </div>
+        </section>
+<br>
+<br>
+        <div class="store_display">
+
+
+
+
+                    <% @listings.each do |listing| %>
+<% if listing.status == "Current" %>
+               
+      <div class="store_item" style="       background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('<%= listing.image_url %>');">
+        
+   
+          <br>
+          <br>
+          <br>
+            <h3 style="text-align: center; font-weight: 500;"><%= listing.title %></h3>
+
+            <h5 style="text-align: center; font-weight: 300;"><%= truncate(strip_tags(listing.description), length: 150) %></h5>
+            <div class="item_actions">
+            <span class="price"><%= number_to_currency(listing.price) %></span>
+
+
+            <br><a href="<%= listing_path(listing) %>"><button class ="view_item" type="button">View</button></a>
+        </div>
+</div>
+
+<% end %>
+
+<% end %> 
+
+</div>
+
+
+
+
+
+
+
+<% end %>
