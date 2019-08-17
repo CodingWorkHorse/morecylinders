@@ -114,6 +114,41 @@
 
 <% else %>
 
+<% if current_user && current_user.technician? && (@listing.status == "Community" || @listing.status == "Private") && @listing.listing_author != current_user.email %>
+
+<h1 style="text-align: center;">Change Listing Status</h1>
+
+<div class="listing_form">
+<%= form_with(model: listing, local: true) do |form| %>
+  <% if listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :status %>
+   <select name="listing[status]" id="status">
+    <option value="Private">Private</option>
+        <option value="Community">Community</option>
+  </select>
+  </div>
+
+  <div class="actions" style="margin-top: 2em;">
+   <p style="width: 25%; margin-left: auto; margin-right: auto; font-size: 0.75em;"> By Clicking 'Change Status', You Hereby Confirm That This Listing Meets or Fails to Meet the Community Finds Guidelines, and as such deserves 'Community' or 'Private' status respectively.</p>
+    <button type="submit" value="Submit" style="width: 12.5%; padding-top: 0.5em; margin-top: 0.5em; padding-bottom: 0.5em;">Change Status</button>
+  </div>
+<% end %>
+</div>
+
+<% else %>
+
 <div class="listing_form">
 <%= form_with(model: listing, local: true) do |form| %>
   <% if listing.errors.any? %>
@@ -295,7 +330,7 @@ Please Insert a Description of this Market Find.
 
 
   <div class="field">
-    <%= form.hidden_field :status, :value=> "Private" %>
+    <%= form.hidden_field :status, :value=> "Pending" %>
   </div>
 
   <div class="field">
@@ -347,5 +382,5 @@ Please Insert a Description of this Market Find.
 
 </div>
 
-
+<% end %>
 <% end %>

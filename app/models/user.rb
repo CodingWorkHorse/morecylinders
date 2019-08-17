@@ -18,5 +18,8 @@ class User < ApplicationRecord
 	def warehouse?
 		self.role == 'Warehouse'
 	end
-	
+
+	def technician?
+		self.role == 'Technician'
+	end	
 end

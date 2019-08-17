@@ -7,4 +7,14 @@ class HomeController < ApplicationController
   end
   def terms_of_service
   end
+  def community
+    @collections = Collection.all
+    @listings = Listing.all
+  end
+  def community_listings
+    @listings = Listing.all
+  end
+  def community_collections
+    @collections = Collection.all
+  end
 end

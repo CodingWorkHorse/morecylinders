@@ -70,6 +70,51 @@
 <a href="<%= new_listing_path %>"><div id="snackbar">New Listing</div></a>
 
 <% else %>
+
+
+<% if current_user && current_user.technician? %>
+<% pending_count = 0; %>
+<% @listings.each do |listing| %>
+<% if listing.status == "Pending" %>
+<% pending_count = pending_count + 1; %>
+<% end %>
+
+<% end %>
+<h1 style="text-align: center;">Listings Pending Approval</h1>
+<h3 style="text-align: center;">There are Currently <%= pending_count %> <%= 'Listing'.pluralize(pending_count) %> Pending Approval</h3>
+ <div class="store_display">
+
+                   
+
+
+                    <% @listings.each do |listing| %>
+<% if listing.status == "Pending" %>
+               
+      <div class="store_item" style="       background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('<%= listing.image_url %>');">
+        
+   
+          <br>
+          <br>
+          <br>
+            <h3 style="text-align: center; font-weight: 500;"><%= listing.title %></h3>
+
+            <h5 style="text-align: center; font-weight: 300;"><%= truncate(strip_tags(listing.description), length: 150) %></h5>
+            <div class="item_actions">
+            <span class="price"><%= number_to_currency(listing.price) %></span>
+
+
+            <br><a href="<%= listing_path(listing) %>"><button class ="view_item" type="button">View</button></a>
+        </div>
+</div>
+
+<% end %>
+
+<% end %> 
+
+</div>
+
+<% else %> 
+
 <div class="error_access_denied">
   <a href="<%= root_path %>">
 <img src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/something-s-not-quite-right-icon_orig.png" alt="404 Page Not Found" width="943px" height="400px" style="text-align:center;"></a>
@@ -79,4 +124,5 @@
 <div class="error_button_home">
 <a href="<%= root_path %>" >Home</a>
 </div>
+<% end %>
 <% end %>

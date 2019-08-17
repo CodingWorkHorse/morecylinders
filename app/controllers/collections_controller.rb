@@ -11,6 +11,8 @@ class CollectionsController < ApplicationController
   # GET /collections/1.json
   def show
     @listings = Listing.order(:title)
+    @connects = @collection.connects.all
+  @connect = @collection.connects.build
   end
 
   # GET /collections/new

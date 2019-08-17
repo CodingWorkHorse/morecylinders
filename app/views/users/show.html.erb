@@ -88,7 +88,65 @@
 
 <button class="collapsible" style="margin-top: .05em; font-weight: thin; margin-bottom: 0.025em;">Private Collections</button>
 <div class="content">
+<div class="store_display" style="margin-top: 5em;">
 
+<% collect_count = 0; %>
+
+
+                    <% @collections.each do |collection| %>
+<% if collection.collection_author == current_user.email  %>
+               <% collect_count = collect_count + 1; %>
+
+               <% if collection.collection_image != "" %>
+      <div class="store_item" style="       background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('<%= collection.collection_image %>');">
+
+        <% else %>
+ <div class="store_item" style="       background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url('https://static.thenounproject.com/png/275465-200.png');">
+        <% end %>
+        
+   
+          <br>
+          <br>
+          <br>
+            <h3 style="text-align: center; font-weight: 500;"><%= collection.title %></h3>
+
+            <h5 style="text-align: center; font-weight: 300;"><%= truncate(strip_tags(collection.description), length: 150) %></h5>
+            <div class="item_actions">
+            
+
+
+            <br><a href="<%= collection_path(collection) %>"><button class ="view_item" type="button">View</button></a>
+            or <a href="<%= edit_collection_path(collection) %>"><button class ="view_item" type="button">Edit</button></a>
+        </div>
+</div>
+
+<% end %>
+
+<% end %>
+
+
+</div>
+
+
+
+<div style="text-align: center; margin-bottom: 0.5em;">
+  <% if collect_count == 0 %>
+<h1 style="color: black; font-size: 1.05em;">No Private Collections Found</h1>
+
+<% end %>
+
+<% if collect_count > 0 %>
+<h1 style="color: black; font-size: 1.05em;">Showing <%= collect_count %> Private <%= 'Collection'.pluralize(collect_count) %></h1>
+
+<% end %>
+
+<a href="<%= new_collection_path %>"><button class="login_btn">Create New Private Collection</button></a>
+
+
+</div>
+<div style="text-align: center; margin-bottom: 0.5em;">
+<p1 style="font-size: .75em;">Learn More About Our <a href="<%= home_path%>" style="color: black;"><strong>Community Finds Program</strong></a></p1>
+</div>
 </div>
 
 

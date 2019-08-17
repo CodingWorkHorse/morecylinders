@@ -397,14 +397,48 @@
 
 <% if exsisting_collections > 0 %>
 <div class="add_to_collection" style="width: 50%; margin-right: auto; margin-left: auto; text-align: center;">
-Add To Collection
-
+<!-- Add To Collection -->
 </div>
 
 <% end %>
 
 <% end %>
 
+
+<% if current_user && current_user.technician? && (@listing.status == "Community" || @listing.status == "Pending")%>
+
+<div style="background-color: black; width: 50%; padding-top: 1em; color: #fff; margin-left: auto; margin-right: auto; text-align: center; padding-bottom: 1em;">
+
+<h2>Approval for Community Display</h2>
+<% if @listing.status == "Community" %>
+<p>This Listing is Currently Approved For Community Display</p>
+<a href="<%= edit_listing_path(@listing) %>"><button class="view_item">Change Status</button></a>
+
+  <% end %>
+
+  <% if @listing.status == "Current" %>
+<p>This Listing is Currently Approved For Showroom Display</p>
+  <% end %>
+
+  <% if @listing.status == "Archived" %>
+<p>This Listing is Archived and Cannot Be Approved at This Time</p>
+  <% end %>
+
+  <% if @listing.status == "Private" %>
+<p>This Listing is Currently NOT Approved For Community Display</p>
+<a href="<%= edit_listing_path(@listing) %>"><button>Change Status</button></a>
+
+  <% end %>
+
+  <% if @listing.status == "Pending" %>
+<p>This Listing is Currently Pending Approved For Community Display</p>
+<a href="<%= edit_listing_path(@listing) %>"><button>Change Status</button></a>
+
+  <% end %>
+
+
+</div>
+<% end %>
 
 
 <!-- Below Is The Filtering System for Comments to Prevent Explict Content. All Content in Array Is From Maurice Bulter via GitHub and is used under the MIT License. The Original Git Commit is Extractable at: https://github.com/MauriceButler/badwords -->

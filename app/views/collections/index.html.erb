@@ -1,3 +1,4 @@
+<% if current_user %>
 <p id="notice"><%= notice %></p>
 
 <h1>Collections</h1>
@@ -35,3 +36,21 @@
 <br>
 
 <%= link_to 'New Collection', new_collection_path %>
+
+
+
+
+
+
+<% else %>
+<div class="error_access_denied">
+  <a href="<%= home_path %>">
+<img src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/something-s-not-quite-right-icon_orig.png" alt="404 Page Not Found" width="943px" height="400px" style="text-align:center;"></a>
+
+<h1>Something Doesn't Quite Line Up</h1>
+</div>
+<div class="error_button_home">
+<a href="<%= home_path %>" >Home</a>
+</div>
+<% end %>
+

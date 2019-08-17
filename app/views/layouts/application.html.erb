@@ -23,7 +23,8 @@
   <% else %>
   <a href="<%= login_path %>"><button class ="login" type="button">Log In</button></a>
 <% end %>
-<a href="<%= archived_path %>"><p>Archived</p></a>
+  <a href="<%= archived_path %>"><p>Archived</p></a>
+  <a href="<%= community_path %>"><p>Community</p></a>
   <a href="<%= showroom_path %>"><p>Collection</p></a>
   <% if current_user && current_user.admin?%>
   <a href="<%= dashboard_path %>"><p>Dashboard</p></a>

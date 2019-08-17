@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @listings = Listing.order(:title)
+     @collections = Collection.all
   end
 
   # GET /users/new

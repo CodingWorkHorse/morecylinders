@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :connects
   resources :collections
   resources :comments
   resources :comments do
@@ -22,4 +23,7 @@ end
   get 'archived', to: 'collection#archived', as: 'archived'
   get 'privacy_policy', to: 'home#privacy_policy', as: 'privacy_policy'
   get 'terms_of_service', to: 'home#terms_of_service', as: 'terms_of_service'
+  get 'community', to: 'home#community', as: 'community'
+  get 'community/listings', to: 'home#community_listings', as: 'community/listings'
+  get 'community/collections', to: 'home#community_collections', as: 'community/collections'
 end
