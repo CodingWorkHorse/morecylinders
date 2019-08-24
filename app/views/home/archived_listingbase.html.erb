@@ -1,8 +1,7 @@
 <% if current_user && current_user.admin?%>
 <p id="notice"><%= notice %></p>
 
-<h1 style="text-align: center;">Current Showroom Listings</h1>
-<a href="<%= community_listingbase_path %>"><p style="text-align: center;">Community Listing Manager</p></a>
+<h1 style="text-align: center;">Archived Showroom Listings</h1>
 <p style="text-align: center;"><%= link_to 'New Listing', new_listing_path %><p>
 <!--<table>
   <thead>
@@ -67,9 +66,9 @@
 
 
                     <% @listings.each do |listing| %>
-<% if listing.status == "Current" %>
+<% if listing.status == "Archived" %>
                
-      <div class="store_item" style="       background-image: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0.75)), url('<%= listing.image_url %>');">
+      <div class="store_item" style="       background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)), url('<%= listing.image_url %>');">
         
    
           <br>
@@ -92,15 +91,15 @@
             <% end %>
             <% end %>
 
-            <h5 style="text-align: center; font-weight: 300;"><%= truncate(strip_tags(listing.description), length: 150) %></h5>
+
             <div class="item_actions">
             <span class="price"><%= number_to_currency(listing.price) %></span>
-
 
             <br>
             <br><a href="<%= listing_path(listing) %>"><button class ="view_item" style="min-width: 120px;" type="button">View</button></a>
             <br><a href="<%= edit_listing_path(listing) %>"><button class ="view_item"  style="min-width: 120px;" type="button">Edit</button></a>
             <br><button class ="view_item"  style="min-width: 120px;" type="button"><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+
         </div>
 </div>
 
@@ -124,48 +123,7 @@
 <% else %>
 
 
-<% if current_user && current_user.technician? %>
-<% pending_count = 0; %>
-<% @listings.each do |listing| %>
-<% if listing.status == "Pending" %>
-<% pending_count = pending_count + 1; %>
-<% end %>
 
-<% end %>
-<h1 style="text-align: center;">Listings Pending Approval</h1>
-<h3 style="text-align: center;">Currently <%= pending_count %> <%= 'Listing'.pluralize(pending_count) %> Pending Approval</h3>
- <div class="store_display">
-
-                   
-
-
-                    <% @listings.each do |listing| %>
-<% if listing.status == "Pending" %>
-               
-      <div class="store_item" style="       background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('<%= listing.image_url %>');">
-        
-   
-          <br>
-          <br>
-          <br>
-            <h3 style="text-align: center; font-weight: 500;"><%= listing.title %></h3>
-
-            <h5 style="text-align: center; font-weight: 300;"><%= truncate(strip_tags(listing.description), length: 150) %></h5>
-            <div class="item_actions">
-            <span class="price"><%= number_to_currency(listing.price) %></span>
-
-
-            <br><a href="<%= listing_path(listing) %>"><button class ="view_item" type="button">View</button></a>
-        </div>
-</div>
-
-<% end %>
-
-<% end %> 
-
-</div>
-
-<% else %> 
 
 <div class="error_access_denied">
   <a href="<%= root_path %>">
@@ -177,4 +135,4 @@
 <a href="<%= root_path %>" >Home</a>
 </div>
 <% end %>
-<% end %>
+

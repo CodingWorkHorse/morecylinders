@@ -1,0 +1,239 @@
+<% if current_user && current_user.admin?%>
+<p id="notice"><%= notice %></p>
+
+<h1 style="text-align: center;">Community Listings</h1>
+<a href="<%= listingbase_path %>"><p style="text-align: center;">Showroom Listing Manager</p></a>
+<p style="text-align: center;"><%= link_to 'New Listing', new_listing_path %><p>
+	<div class="ai_flag_table">
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Trim</th>
+      <th>Mileage</th>
+      <th>Vin</th>
+      <th>Condition</th>
+      <th>Exterior color</th>
+      <th>Interior color</th>
+      <th>Engine</th>
+      <th>Transmission</th>
+      <th>Original listing service</th>
+      <th>Listing url</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Listing author</th>
+      <th>Status</th>
+      <th>Image url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% color_array = ["red", "pink", "purple", "deep-purple", "indigo", "blue", "light-blue", "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange", "brown", "grey", "blue-grey", "black", "lime", "porcelein", "tan", "charcoal", "blu"]  %>
+
+    <% engine_array = ["v12", "12v", "v10", "v8", "v6", "v4", "two", "2", "3", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "16", "rotary", "other", "v", "inline", "turbo", "supercharged", "wankel", "turbine"] %>
+    <% @listings.each do |listing| %>
+
+
+    <% flag_index = 0; %>
+    <% if listing.status.to_s != "Community3" %>
+      <tr>
+
+         <!-- Title AI Logic -->
+        <% if listing.year != nil && listing.make != nil && [ listing.year.to_s, listing.make.to_s].any? { |substring| listing.title.downcase.include?(substring) } %>
+        <td style="background-color: green;"><%= truncate(strip_tags(listing.title), length: 15) %></td>
+        <% else %>
+        <% if listing.title.to_s != "" %>
+         <td style="background-color: yellow;"><%= truncate(strip_tags(listing.title), length: 15) %></td>
+        <% else %>
+        <td style="background-color: red;"><%= truncate(strip_tags(listing.title), length: 15) %></td>
+        <% end %>
+        <% end %>
+
+        <% if listing.year != nil %>
+        <td style="background-color: orange;""><%= listing.year %></td>
+        <% else %>
+        <td style="background-color: red;"><%= listing.year %></td>
+        <% end %>
+
+        <% if listing.make.to_s != "" %>
+        <td style="background-color: orange;""><%= truncate(strip_tags(listing.make), length: 15) %></td>
+        <% else %>
+        <td style="background-color: red;"><%= truncate(strip_tags(listing.make), length: 15) %></td>
+        <% end %>
+
+        <% if listing.model.to_s != "" %>
+        <td style="background-color: orange;""><%= truncate(strip_tags(listing.model), length: 15) %></td>
+        <% else %>
+        <td style="background-color: red;"><%= truncate(strip_tags(listing.model), length: 15) %></td>
+        <% end %>
+
+         <% if listing.trim.to_s != "" %>
+        <td style="background-color: orange;""><%= truncate(strip_tags(listing.trim), length: 15) %></td>
+        <% else %>
+        <td style="background-color: red;"><%= truncate(strip_tags(listing.trim), length: 15) %></td>
+        <% end %>
+
+
+     <% if listing.mileage != nil %>
+        <td style="background-color: orange;""><%= listing.mileage %></td>
+        <% else %>
+        <td style="background-color: red;"><%= listing.mileage %></td>
+        <% end %>
+
+         <% if listing.vin.to_s != "" %>
+        <td style="background-color: orange;""><%= truncate(strip_tags(listing.vin), length: 15) %></td>
+        <% else %>
+        <td style="background-color: red;"><%= truncate(strip_tags(listing.vin), length: 15) %></td>
+        <% end %>
+
+        <!-- Condition AI Logic -->
+
+        <% if listing.year != nil && ((listing.condition == "New") && (listing.year > 2017) ) || ((listing.condition == "Certified Pre-Owned") && (listing.year > 2012) ) || (listing.condition == "Used") %>
+        <td style="background-color: green;"></td>
+        <% else %>
+        <% if listing.year != nil %>
+        <td style="background-color: yellow;"></td>
+        <% else %>
+        <td style="background-color: red;"></td>
+        <% end %>
+        <% end %>
+
+         <% if listing.exterior_color != nil && color_array.any? { |substring| listing.exterior_color.downcase.include?(substring) } %>
+        <td style="background-color: green;"><%= truncate(strip_tags(listing.exterior_color), length: 15) %></td>
+        <% else %>
+        <% if listing.exterior_color.to_s != "" %>
+         <td style="background-color: yellow;"><%= truncate(strip_tags(listing.exterior_color), length: 15) %></td>
+        <% else %>
+        <td style="background-color: red;"><%= truncate(strip_tags(listing.exterior_color), length: 15) %></td>
+        <% end %>
+        <% end %>
+
+            <% if listing.interior_color != nil && color_array.any? { |substring| listing.interior_color.downcase.include?(substring) } %>
+        <td style="background-color: green;"><%= truncate(strip_tags(listing.interior_color), length: 15) %></td>
+        <% else %>
+        <% if listing.interior_color.to_s != "" %>
+         <td style="background-color: yellow;"><%= truncate(strip_tags(listing.interior_color), length: 15) %></td>
+        <% else %>
+        <td style="background-color: red;"><%= truncate(strip_tags(listing.interior_color), length: 15) %></td>
+        <% end %>
+        <% end %>
+
+            <% if listing.engine != nil && engine_array.any? { |substring| listing.engine.downcase.include?(substring) } %>
+        <td style="background-color: green;"><%= truncate(strip_tags(listing.engine), length: 15) %></td>
+        <% else %>
+        <% if listing.engine.to_s != "" %>
+         <td style="background-color: yellow;"><%= truncate(strip_tags(listing.engine), length: 15) %></td>
+        <% else %>
+        <td style="background-color: red;"><%= truncate(strip_tags(listing.engine), length: 15) %></td>
+        <% end %>
+        <% end %>
+
+        <td><%= listing.transmission %></td>
+        <td><%= listing.original_listing_service %></td>
+
+
+       
+
+
+        <td><a href="<%= listing.listing_url %>">Link</a></td>
+       <!-- <td><%= listing.description %></td> --> <td></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.listing_author %></td>
+        <% if listing.status == "Community" %>
+        <td style="background-color: green;"></td>
+        <% else %>
+         <td style="background-color: red;"></td>
+        <% end %>
+        
+        <td><%= listing.image_url %></td>
+        <td><%= link_to 'Show', listing %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<!--
+<div class="store_display">
+
+
+
+
+                    <% @listings.each do |listing| %>
+<% if listing.status == "Community" %>
+               
+      <div class="store_item" style="       background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)), url('<%= listing.image_url %>');">
+        
+   
+          <br>
+          <br>
+          <br>
+            <h3 style="text-align: center; font-weight: 500;"><%= listing.title %></h3>
+
+            <% if ((Time.now - listing.updated_at) / 1.minute).round < 1 %>
+            <h5 style="text-align: center; font-weight: 300;">Last Updated Less Than A Minute Ago</h5>
+            <% else %>
+            <% if ((Time.now - listing.updated_at) / 1.minute).round < 60 %>
+            <h5 style="text-align: center; font-weight: 300;">Last Updated <%= ((Time.now - listing.updated_at) / 1.minute).round %> <%= 'Minute'.pluralize(((Time.now - listing.updated_at) / 1.minute).round) %> Ago</h5>
+
+            <% else %>
+            <% if ((Time.now - listing.updated_at) / 1.hour).round < 24 %>
+            <h5 style="text-align: center; font-weight: 300;">Last Updated <%= ((Time.now - listing.updated_at) / 1.hour).round %>  <%= 'Hour'.pluralize(((Time.now - listing.updated_at) / 1.hour).round) %> Ago</h5>
+            <% else %>
+            <h5 style="text-align: center; font-weight: 300;">Last Updated <%= ((Time.now - listing.updated_at) / 1.day).round %>  <%= 'Day'.pluralize(((Time.now - listing.updated_at) / 1.day).round) %> Ago</h5>
+            <% end %>
+            <% end %>
+            <% end %>
+
+
+            <div class="item_actions">
+            <span class="price"><%= number_to_currency(listing.price) %></span>
+
+            <br>
+            <br><a href="<%= listing_path(listing) %>"><button class ="view_item" style="min-width: 120px;" type="button">View</button></a>
+            <br><a href="<%= edit_listing_path(listing) %>"><button class ="view_item"  style="min-width: 120px;" type="button">Edit</button></a>
+            <br><button class ="view_item"  style="min-width: 120px;" type="button"><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+
+        </div>
+</div>
+
+<% end %>
+
+<% end %> 
+
+</div>
+-->
+
+<br>
+
+
+<br>
+<br>
+<br>
+<br>
+
+<!--<a href="<%= new_listing_path %>"><div id="snackbar">New Listing</div></a> -->
+
+<% else %>
+
+
+
+
+<div class="error_access_denied">
+  <a href="<%= root_path %>">
+<img src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/something-s-not-quite-right-icon_orig.png" alt="404 Page Not Found" width="943px" height="400px" style="text-align:center;"></a>
+
+<h1>Something Doesn't Quite Line Up</h1>
+</div>
+<div class="error_button_home">
+<a href="<%= root_path %>" >Home</a>
+</div>
+<% end %>
+

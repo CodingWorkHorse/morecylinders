@@ -279,9 +279,22 @@
 <br>
 <p style="text-align: center; font-weight: lighter; font-size: 0.9em;">Last Updated On <%= @listing.updated_at.to_formatted_s(:long_ordinal) %> UTC</p>
 
+<!-- <% if ((Time.now - @listing.updated_at) / 1.minute).round < 1 %>
+            <p style="text-align: center; font-weight: 300;">Last Updated Less Than A Minute Ago</p>
+            <% else %>
+            <% if ((Time.now - @listing.updated_at) / 1.minute).round < 60 %>
+            <p style="text-align: center; font-weight: 300;">Last Updated <%= ((Time.now - @listing.updated_at) / 1.minute).round %> <%= 'Minute'.pluralize(((Time.now - @listing.updated_at) / 1.minute).round) %> Ago</p>
 
+            <% else %>
+            <% if ((Time.now - @listing.updated_at) / 1.hour).round < 24 %>
+            <p style="text-align: center; font-weight: 300;">Last Updated <%= ((Time.now - @listing.updated_at) / 1.hour).round %>  <%= 'Hour'.pluralize(((Time.now - @listing.updated_at) / 1.hour).round) %> Ago</p>
+            <% else %>
+            <p style="text-align: center; font-weight: 300;">Last Updated <%= ((Time.now - @listing.updated_at) / 1.day).round %>  <%= 'Day'.pluralize(((Time.now - @listing.updated_at) / 1.day).round) %> Ago</p>
+            <% end %>
+            <% end %>
+            <% end %>
 
-
+-->
 
 
 

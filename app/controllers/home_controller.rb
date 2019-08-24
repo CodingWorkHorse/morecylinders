@@ -17,4 +17,10 @@ class HomeController < ApplicationController
   def community_collections
     @collections = Collection.all
   end
+  def archived_listingbase
+    @listings = Listing.all
+  end
+  def community_listingbase
+     @listings = Listing.all
+  end
 end
