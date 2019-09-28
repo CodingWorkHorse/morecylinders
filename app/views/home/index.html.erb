@@ -2,12 +2,12 @@
 
 <% img_array = ["https://www.lensrentals.com/blog/media/2015/11/Car-Photography-Guide-2.jpg", "https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2019/08/13132435/Ken-Saito-NSX-day-trip-in-Japan-14-2000x1125.jpg", "https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2019/07/22103011/dsf5753-1000x750.jpg", "https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2019/07/15135236/SSSZ-Photo-Roughneck-Bridage-Hamburg-Drive-66-1000x667.jpg", "https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2019/06/12105945/Vandenbrink_Shooting-Brake_road_highres_13-2000x1333.jpg" ] %>
 
-<% if current_user %>
-   <section style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('<%= img_array[rand(img_array.count)] %>');" class="hero">
+<!-- <% if current_user %> -->
+  <!--  <section style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('<%= img_array[rand(img_array.count)] %>');" class="hero">
 
-   	<% else %>
+   	<% else %> -->
  <section style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('https://www.lensrentals.com/blog/media/2015/11/Car-Photography-Guide-2.jpg');" class="hero">
-   	<% end %>
+   <!--	<% end %> -->
             <div class="hero-inner">
                 <h1>Great Finds Delivered</h1>
                 <h2>Handpicked Listings From Across the Web Delivered to Your Inbox</h2>
