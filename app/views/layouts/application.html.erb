@@ -27,7 +27,7 @@
   <a href="<%= community_path %>"><p>Community</p></a>
   <a href="<%= showroom_path %>"><p>Collection</p></a>
   <% if current_user && current_user.admin?%>
-  <a href="<%= dashboard_path %>"><p>Dashboard</p></a>
+  <a href="<%= dashboard_path %>"><p>Users</p></a>
   <a href="<%= listingbase_path %>"><p>Listings</p></a>
   <% end %>
   <a href="<%= home_path %>"><p> Home</p></a>
@@ -36,7 +36,7 @@
 
 </div>
 
-<div class="main_block">
+<div class="main_block" style="min-height: 65vh;">
     <%= yield %>
   </div>
 
@@ -57,8 +57,13 @@
   <ul>
     <li><a href="<%= home_path %>">Home</a></li>
     <li><a href="<%= showroom_path %>">Collection</a></li>
+    <% if current_user && current_user.admin? %>
            <li><a href="<%= listingbase_path %>">Listings</a></li>
-           <li><a href="<%= dashboard_path %>">Dashboard</a></li>
+           <li><a href="<%= dashboard_path %>">Users</a></li>
+           <% else %>
+           <li><a href="<%= archived_path %>">Archived</a></li>
+           <li><a href="<%= community_path %>">Community</a></li>
+           <% end %>
   </ul>
 </div>
 

@@ -1,6 +1,8 @@
 <% if current_user && current_user.admin?%>
 <p id="notice"><%= notice %></p>
 
+<div style="text-align: center; margin-right: auto; margin-left: auto; margin-top: auto; margin-bottom: auto;">
+  <h1>My Admin Account</h1>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -16,6 +18,7 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+</div>
 
 <% else %>
 

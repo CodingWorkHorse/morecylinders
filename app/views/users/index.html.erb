@@ -1,9 +1,11 @@
   <% if current_user && current_user.admin?%>
+
+<div style="text-align: center; min-height: 65vh;">
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
 
-<table>
+<table style="margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
       <th>Email</th>
@@ -38,5 +40,6 @@
 </div>
 <div class="error_button_home">
 <a href="<%= home_path %>" >Home</a>
+</div>
 </div>
 <% end %>
