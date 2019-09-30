@@ -401,9 +401,14 @@
 
 </div>
 
-<% if current_user && @listing.listing_author == current_user.email %>
+<% if current_user && (@listing.listing_author == current_user.email || current_user.admin?)%>
 <div class="creator_bar">
+
+  <% if current_user && @listing.listing_author == current_user.email %>
   <h1>Creator Toolbar</h1>
+  <% else %>
+ <h1>Admin Toolbar</h1>
+  <% end %>
   <p>Current Status: <%= @listing.status %></p>
   <p>Comments Left: <%= @comments.count %></p>
   <div style="margin-bottom: 1em;">

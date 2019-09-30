@@ -35,6 +35,8 @@
 
     <% color_array = ["red", "pink", "purple", "deep-purple", "indigo", "blue", "light-blue", "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange", "brown", "grey", "blue-grey", "black", "lime", "porcelein", "tan", "charcoal", "blu"]  %>
 
+    <% transmission_array = ["manual", "automatic", "auto", "stick", "paddle", "paddle-shift", "four-speed", "double-clutch", "doubleclutch", "clutch", "F1"]  %>
+
     <% engine_array = ["v12", "12v", "v10", "v8", "v6", "v4", "two", "2", "3", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "16", "rotary", "other", "v", "inline", "turbo", "supercharged", "wankel", "turbine"] %>
     <% @listings.each do |listing| %>
 
@@ -133,7 +135,19 @@
         <% end %>
         <% end %>
 
-        <td><%= listing.transmission %></td>
+        
+
+         <% if listing.transmission != nil && transmission_array.any? { |substring| listing.transmission.downcase.include?(substring) } %>
+        <td style="background-color: green;"><%= truncate(strip_tags(listing.transmission), length: 15) %></td>
+        <% else %>
+        <% if listing.transmission.to_s != "" %>
+         <td style="background-color: yellow;"><%= truncate(strip_tags(listing.transmission), length: 15) %></td>
+        <% else %>
+        <td style="background-color: red;"><%= truncate(strip_tags(listing.transmission), length: 15) %></td>
+        <% end %>
+        <% end %>
+
+
         <td><%= listing.original_listing_service %></td>
 
 
@@ -141,7 +155,12 @@
 
 
         <td><a href="<%= listing.listing_url %>">Link</a></td>
-       <!-- <td><%= listing.description %></td> --> <td></td>
+       <!-- <td><%= listing.description %></td> -->
+       <% if listing.description != "" && (listing.description.downcase.include?(listing.model) || listing.description.downcase.include?(listing.make) || listing.description.downcase.include?(listing.year.to_s) || listing.description.downcase.include?(listing.trim))%>
+        <td style="background-color: green;"></td>
+        <% else %>
+         <td style="background-color: red;"></td>
+        <% end %>
         <td><%= listing.price %></td>
         <td><%= listing.listing_author %></td>
         <% if listing.status == "Community" %>

@@ -17,11 +17,16 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+
+        <% if current_user && current_user == user %>
+        <td style="color: green;"><%= user.email %></td>
+        <% else %>
         <td><%= user.email %></td>
-        <td><%= user.role %></td>
+        <% end %>
+        <td style="color: red;"><%= user.role %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure that you want to remove this user?' } %></td>
       </tr>
     <% end %>
   </tbody>

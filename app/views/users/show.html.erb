@@ -1,8 +1,14 @@
 <% if current_user && current_user.admin?%>
-<p id="notice"><%= notice %></p>
 
 <div style="text-align: center; margin-right: auto; margin-left: auto; margin-top: auto; margin-bottom: auto;">
+  <p id="notice"><%= notice %></p>
+
+
+  <% if current_user && current_user == @user %>
   <h1>My Admin Account</h1>
+  <% else %>
+  <h1>View Account</h1>
+  <% end %>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
