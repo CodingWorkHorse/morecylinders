@@ -419,6 +419,13 @@
 </div>
 <% end %>
 
+
+
+
+
+
+<% if current_user && current_user.admin?%>
+
 <div style="margin-top: 5em; text-align: center;">
 
 
@@ -429,9 +436,6 @@
 </div>
 
 
-
-
-<% if current_user && current_user.admin?%>
 <p id="notice"><%= notice %></p>
 
 <p>
