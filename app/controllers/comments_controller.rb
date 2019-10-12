@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to listing_path(@comment.listing_id), notice: 'Comment was successfully created.' }
+        format.html { redirect_to listing_path(@comment.listing_id), :id => "comment_section_destination" , notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }

@@ -52,9 +52,15 @@
 <% if current_user %>
   <div class="actions">
     <div style="display:flex; justify-content:flex-end; width:100%; padding:0;">
-    <button type="submit" value="Submit" class="comment_button">Comment</button>
+    <button type="submit" value="Submit" class="comment_button" onclick="confirmComment()">Comment</button>
   </div>
   </div>
+
+  <script>
+function confirmComment() {
+  confirm("When Your Comment Is Created, It Will Appear With a Random Alias to Keep Your Personal Information Private");
+}
+</script>
 
   <% else %>
  <div class="actions">
