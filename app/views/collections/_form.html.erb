@@ -1,3 +1,7 @@
+<% current_user && current_user.admin? %>
+
+
+<!--
 <%= form_with(model: collection, local: true) do |form| %>
   <% if collection.errors.any? %>
     <div id="error_explanation">
@@ -45,3 +49,106 @@
     <%= form.submit %>
   </div>
 <% end %>
+-->
+
+<% else %>
+
+<div class="listing_form">
+
+  <h1>Collection Editor</h1>
+<% if current_user && !current_user.admin?%>
+<%= form_with(model: collection, local: true) do |form| %>
+  <% if collection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(collection.errors.count, "error") %> prohibited this collection from being saved:</h2>
+
+      <ul>
+      <% collection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+    <div class="field">
+    <%= form.label :description %>
+    
+    <textarea style="border-color: black; color: black; width: 25%; border-width: 0.2em;" rows="10" name="collection[description]" id="description">
+Please Insert a Description of this Collection.
+</textarea>
+
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :status, :value=> "Private" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category, :value => "Ex: American Muscle"%>
+  </div>
+
+ <!-- <div class="field">
+    <%= form.label :collection_author %>
+    <%= form.text_field :collection_author %>
+  </div>
+
+-->
+
+  <div class="field">
+    <%= form.hidden_field :collection_author, :value=> current_user.email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :collection_image %>
+    <%= form.text_field :collection_image, :value => "Enter the URL of the Image"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :collection_image %>
+    <!-- <%= form.text_field :collection_image %> -->
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+      
+      $('#collection_image').bind('input', function() {
+          $('#imageHolder').attr('src', $(this).val()); //concatinate path if required
+      });
+
+    });
+  </script>
+
+
+  <input type="text" name="collection[collection_image]" id="collection_image"><br><br>
+  <div style="border-color: black; color: black; border-width: 0.2em;">
+  <p><strong>Image Preview</strong></p>
+  <img name="imageHolder" id="imageHolder" src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/screen-shot-2019-07-16-at-2-03-03-pm_orig.png" width="25%" height="auto" style="border-color: black; color: black; border-width: 0.2em;"></div>
+
+
+</div>
+
+
+
+
+   <div class="actions">
+    <button type="submit" value="Submit" style="width: 12.5%; padding-top: 0.5em; padding-bottom: 0.5em;">Submit</button>
+  </div>
+
+  <% end %>
+
+</div>
+
+<% else %>
+
+
+
+<% end %>
+

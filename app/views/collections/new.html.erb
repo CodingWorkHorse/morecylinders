@@ -1,5 +1,31 @@
-<h1>New Collection</h1>
+<% if current_user && current_user.admin?%>
+
+<h1 style="text-align: center;">New Collection</h1>
 
 <%= render 'form', collection: @collection %>
 
 <%= link_to 'Back', collections_path %>
+
+
+<% else %>
+
+<% if current_user %>
+
+<%= render 'form', collection: @collection %>
+
+<% else %>
+
+<div class="error_access_denied">
+  <a href="<%= root_path %>">
+<img src="http://baumcube.weebly.com/uploads/6/5/8/4/65844733/something-s-not-quite-right-icon_orig.png" alt="404 Page Not Found" width="943px" height="400px" style="text-align:center;"></a>
+
+<h1>Something Doesn't Quite Line Up</h1>
+</div>
+<div class="error_button_home">
+<a href="<%= root_path %>" >Home</a>
+</div>
+
+<% end %>
+
+
+<% end %>
