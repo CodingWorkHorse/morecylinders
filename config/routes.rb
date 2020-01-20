@@ -28,4 +28,5 @@ end
   get 'community/collections', to: 'home#community_collections', as: 'community/collections'
   get 'archived_listingbase', to: 'home#archived_listingbase', as: 'archived_listingbase'
   get 'community_listingbase', to: 'home#community_listingbase', as: 'community_listingbase'
+  get 'listing_search', to: 'home#listing_search', as: 'listing_search'
 end
