@@ -8,6 +8,9 @@ class HomeController < ApplicationController
   def listing_search
     input_text = "https://www.ebay.com/itm/2017-Lamborghini-Aventador-SV-Roadster/124043556928?hash=item1ce1927840:g:ETwAAOSwfzJd86yf"
     @heart = `python lib/assets/python/ebay_scraper.py "#{input_text}"`
+    input = "MAKE|MODEL|ZIPCODE"
+    input = "Lamborghini|Huracan|60045"
+    @liver = `python lib/assets/python/ebay_search_scraper.py "#{input}"`
   end
   def terms_of_service
   end
