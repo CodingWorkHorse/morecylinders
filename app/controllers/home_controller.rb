@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   def privacy_policy
   end
   def listing_search
-    input_text = "https://www.ebay.com/itm/2017-Lamborghini-Aventador-SV-Roadster/124043556928?hash=item1ce1927840:g:ETwAAOSwfzJd86yf"
+    input_text = "https://www.ebay.com/itm/174843195223?hash=item28b5776f57:g:7hAAAOSwIlVg8YjH"
     @heart = `python lib/assets/python/ebay_scraper.py "#{input_text}"`
     input = "MAKE|MODEL|ZIPCODE"
     input = "Lamborghini|Huracan|60045"
