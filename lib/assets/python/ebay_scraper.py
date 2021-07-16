@@ -28,8 +28,10 @@ converted_price = float(price_string_format)
 
 condition = soup.find(id="vi-itm-cond").get_text()
 
-print title
+#print title
 
-print converted_price
+#print converted_price
 
-print condition
+#print condition
+
+print "Cool Sample Content"
